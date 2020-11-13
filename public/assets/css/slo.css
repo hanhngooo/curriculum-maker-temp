@@ -1,0 +1,14 @@
+.sloTitle__left {
+  float: left;
+  width: 200px;
+}
+
+.sloTitle__right {
+  float: right;
+  width: 260px;
+}
+
+.form-check-label.normal {
+  font-weight: normal;
+}
+

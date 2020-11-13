@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Scorecard-Curriculum-Maker-Demo-09-NOV-2020</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../assets/css/scorecard-navbar.css">
+    <link rel="stylesheet" href="../assets/css/slo.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+        <div class="container-fluid"><a class="navbar-brand"><strong>StudyCard </strong>| Curriculum Maker</a></div>
+    </nav>
+    <div class="container">
+        <div class="col" style="height: 100px;"></div>
+        <div class="col">
+            <h4><strong>Data Entry Maker - Overview</strong><br></h4>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col-sm-12 col-xl-3">
+                    <div class="form-group"><label><strong>Country</strong><br></label><select class="form-control" readonly="" disabled=""><optgroup label="Country"><option value="The Netherlands" selected="">The Netherlands</option></optgroup></select></div>
+                </div>
+                <div class="col-sm-12 col-xl-3">
+                    <div class="form-group"><label><strong>EQF-level</strong><br></label><select class="form-control" readonly="" disabled=""><optgroup label="Opleidingsniveau"><option value="EQF 1">EQF 1</option><option value="EQF 2">EQF 2</option><option value="EQF 3">EQF 3</option><option value="EQF 4">EQF 4</option><option value="EQF 5">EQF 5</option><option value="EQF 6" selected="">EQF 6</option><option value="EQF 7">EQF 7</option><option value="EQF 8">EQF 8</option><option value="EQF 9">EQF 9</option><option value="EQF 10">EQF 10</option></optgroup></select></div>
+                </div>
+                <div class="col-sm-12 col-xl-3">
+                    <div class="form-group"><label><strong>National Level Equivalent</strong><br></label><input type="text" class="form-control" value="HBO" readonly="" disabled=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>School</th>
+                            <th>Opleiding</th>
+                            <th class="text-center">Beroepen</th>
+                            <th class="text-center">Competenties</th>
+                            <th class="text-center">Vaardigheden</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bijv. Amsterdamse Hogeschool</td>
+                            <td>Account Management</td>
+                            <td class="text-center">3</td>
+                            <td class="text-center">5</td>
+                            <td class="text-center">24</td>
+                            <td><button class="btn btn-primary" type="button">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>&lt;school naam&gt;</td>
+                            <td>&lt;opleidingsnaam&gt;</td>
+                            <td class="text-center">&lt;aantal beroepen&gt;</td>
+                            <td class="text-center">&lt;aantal comptenties&gt;</td>
+                            <td class="text-center">&lt;aantal vaardigheden&gt;</td>
+                            <td><button class="btn btn-primary" type="button">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col" style="height: 100px;">
+            <div class="row d-xl-flex justify-content-xl-end" style="margin-top: 50px;">
+                <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-outline-primary" type="button" style="margin-right: 10px;">terug naar invoer</button><button class="btn btn-primary" type="button">Export JSON</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

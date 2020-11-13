@@ -1,0 +1,13 @@
+.form__heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-control.password {
+  margin-top: 40px;
+}
+
+#loginpassword {
+  margin-top: 0;
+}
+
