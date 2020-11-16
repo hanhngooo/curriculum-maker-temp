@@ -8,6 +8,8 @@ import Profession from "./pages/Profession";
 import Competency from "./pages/Competency";
 import StudyYear from "./pages/StudyYear";
 import SLO from "./pages/SLO";
+import Module from "./pages/Module";
+import Teacher from "./pages/Teacher";
 function App() {
   return (
     <div className="App">
@@ -19,6 +21,8 @@ function App() {
         <Route exact path="/addCompetency" component={Competency} />
         <Route exact path="/addStudyYear" component={StudyYear} />
         <Route exact path="/addSLO" component={SLO} />
+        <Route exact path="/addModule" component={Module} />
+        <Route exact path="/addTeacher" component={Teacher} />
       </Switch>
     </div>
   );

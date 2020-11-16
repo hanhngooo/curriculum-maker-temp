@@ -14,7 +14,7 @@ export default function School() {
               <strong>School name</strong>
               <br />
             </label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" required />
           </div>
           <div className="form-group">
             <label>
@@ -29,34 +29,56 @@ export default function School() {
               <option value="Dependance">Dependance</option>
             </select>
           </div>
-          <div className="form-group">
-            <label>
-              <strong>Street name</strong>
-              <br />
-            </label>
-            <input type="text" className="form-control" />
+          <div className="row">
+            <div className="col-sm-12 col-md-6 col-xl-6">
+              <div className="form-group">
+                <label>
+                  <strong>Street name</strong>
+                  <br />
+                </label>
+                <input type="text" className="form-control" />
+              </div>
+            </div>
+            <div className="col">
+              <div className="form-group">
+                <label>
+                  <strong>House number</strong>
+                  <br />
+                </label>
+                <input type="text" className="form-control" />
+              </div>
+            </div>
+            <div className="col">
+              <div className="form-group">
+                <label>
+                  <strong>Addition</strong>
+                  <br />
+                </label>
+                <input type="text" className="form-control" />
+              </div>
+            </div>
           </div>
-          <div className="form-group">
-            <label>
-              <strong>House number</strong>
-              <br />
-            </label>
-            <input type="text" className="form-control" />
+          <div className="row">
+            <div className="col">
+              <div className="form-group">
+                <label>
+                  <strong>Postcode</strong>
+                  <br />
+                </label>
+                <input type="text" className="form-control" />
+              </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="form-group">
+                <label>
+                  <strong>Country</strong>
+                  <br />
+                </label>
+                <input type="text" className="form-control" />
+              </div>
+            </div>
           </div>
-          <div className="form-group">
-            <label>
-              <strong>Postcode</strong>
-              <br />
-            </label>
-            <input type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label>
-              <strong>Country</strong>
-              <br />
-            </label>
-            <input type="text" className="form-control" />
-          </div>
+
           <div className="form-group">
             <label>
               <strong>Website</strong>

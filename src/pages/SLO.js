@@ -223,7 +223,7 @@ export default function SLO() {
           </div>
           <div className="row">
             <div className="col">
-              <a href="/">
+              <a href="/addModule">
                 <button className="btn btn-primary text-justify" type="button">
                   Next
                 </button>
