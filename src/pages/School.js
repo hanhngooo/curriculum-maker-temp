@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, useField, ErrorMessage } from "formik";
 import { Radio, FormControlLabel } from "@material-ui/core";
 import * as yup from "yup";
@@ -13,6 +13,7 @@ const MyRadio = ({ label, ...props }) => {
 };
 
 export default function School() {
+  const [continueButton, setContinueButton] = useState(false);
   let validationSchema = yup.object().shape({
     schoolName: yup.string().required("This field is required."),
     schoolType: yup.string().required("This field is required."),
@@ -54,10 +55,12 @@ export default function School() {
                 const { schoolTypeOther, ...filteredData } = data;
                 console.log("submit data: ", filteredData);
                 resetForm();
+                setContinueButton(true);
               } else {
                 const { schoolTypeOther, ...filteredData } = data;
                 console.log("submit data: ", filteredData);
                 resetForm();
+                setContinueButton(true);
               }
 
               setSubmitting(false);
@@ -211,7 +214,7 @@ export default function School() {
           </Formik>
         </div>
 
-        <ContinueButton url="/addStudy" />
+        {continueButton ? <ContinueButton url="/addStudy" /> : null}
       </div>
     </div>
   );
