@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field, useField, ErrorMessage } from "formik";
 import { Radio, FormControlLabel } from "@material-ui/core";
 import * as yup from "yup";
@@ -6,6 +7,7 @@ import "./Form.css";
 
 import ContinueButton from "../components/ContinueButton";
 import SaveButton from "../components/SaveButton";
+import { addSchool } from "../store/user/actions";
 
 const MyRadio = ({ label, ...props }) => {
   const [field] = useField(props);
@@ -14,6 +16,7 @@ const MyRadio = ({ label, ...props }) => {
 
 export default function School() {
   const [continueButton, setContinueButton] = useState(false);
+  const dispatch = useDispatch();
   let validationSchema = yup.object().shape({
     schoolName: yup.string().required("This field is required."),
     schoolType: yup.string().required("This field is required."),
@@ -48,17 +51,19 @@ export default function School() {
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={(data, { setSubmitting, resetForm }) => {
+            onSubmit={async (data, { setSubmitting, resetForm }) => {
               setSubmitting(true);
               if (data.schoolTypeOther !== "") {
                 data.schoolType = data.schoolTypeOther;
                 const { schoolTypeOther, ...filteredData } = data;
                 console.log("submit data: ", filteredData);
+                dispatch(addSchool(filteredData));
                 resetForm();
                 setContinueButton(true);
               } else {
                 const { schoolTypeOther, ...filteredData } = data;
                 console.log("submit data: ", filteredData);
+                dispatch(addSchool(filteredData));
                 resetForm();
                 setContinueButton(true);
               }
