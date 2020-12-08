@@ -14,12 +14,12 @@ export const addSchool = (schoolInput) => {
   };
 };
 
-export const ADD_STUDY_SUCCESS = "ADD_STUDY_SUCCESS";
+export const ADD_STUDY_SUCCESS = " ADD_STUDY_SUCCESS";
 
-const addStudySuccess = (studyInfo) => {
+const addStudySuccess = (graduateProfile) => {
   return {
     type: ADD_STUDY_SUCCESS,
-    payload: studyInfo,
+    payload: graduateProfile,
   };
 };
 
@@ -27,5 +27,21 @@ export const addStudy = (studyInput) => {
   return async (dispatch, getState) => {
     // console.log("do you go here", studyInput);
     dispatch(addStudySuccess(studyInput));
+  };
+};
+
+export const ADD_GRADUATE_PROFILE_SUCCESS = "ADD_GRADUATE_PROFILE_SUCCESS";
+
+const addGraduateProfileSuccess = (graduateProfile) => {
+  return {
+    type: ADD_GRADUATE_PROFILE_SUCCESS,
+    payload: graduateProfile,
+  };
+};
+
+export const addGraduateProfile = (graduateProfile) => {
+  return async (dispatch, getState) => {
+    // console.log("do you go here", studyInput);
+    dispatch(addGraduateProfileSuccess(graduateProfile));
   };
 };

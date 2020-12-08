@@ -9,17 +9,13 @@ import ContinueButton from "../components/ContinueButton";
 import SaveButton from "../components/SaveButton";
 import SideBarStep from "../components/SideBarStep";
 import SideBarOverview from "../components/SideBarOverview";
-import { addSchool } from "../store/user/actions";
-// import { selectSchool } from "../store/user/selectors";
-
-const MyRadio = ({ label, ...props }) => {
-  const [field] = useField(props);
-  return <FormControlLabel {...field} control={<Radio />} label={label} />;
-};
+import { addGraduateProfile } from "../store/user/actions";
+import { selectGraduateProfile } from "../store/user/selectors";
 
 export default function School() {
   const [continueButton, setContinueButton] = useState(false);
   const dispatch = useDispatch();
+  const graduateProfiles = useSelector(selectGraduateProfile);
 
   let validationSchema = yup.object().shape({
     graduateTitle: yup.string().required("This field is required."),
@@ -55,7 +51,7 @@ export default function School() {
                 onSubmit={async (data, { setSubmitting, resetForm }) => {
                   setSubmitting(true);
                   console.log("profile", data);
-                  // dispatch(addSchool(filteredData));
+                  dispatch(addGraduateProfile(data));
                   resetForm();
                   setContinueButton(true);
                   setSubmitting(false);
@@ -93,6 +89,31 @@ export default function School() {
                       dataName="school"
                       disabled={isSubmitting && isValid}
                     />
+                    <div>
+                      <h6>
+                        <strong>Overview: Graduate Profiles</strong>
+                      </h6>
+                      <div className="table-responsive">
+                        <table className="table">
+                          <thead>
+                            <tr>
+                              <th>Title</th>
+                              <th>Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {graduateProfiles
+                              ? graduateProfiles.map((profile, index) => (
+                                  <tr key={index}>
+                                    <td>{profile.graduateTitle}</td>
+                                    <td>{profile.graduateDescription}</td>
+                                  </tr>
+                                ))
+                              : null}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </Form>
                 )}
               </Formik>
