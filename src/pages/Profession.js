@@ -125,12 +125,12 @@ export default function Profession() {
                     </div>
 
                     <SaveButton
-                      dataName="school"
+                      dataName="Profession"
                       disabled={isSubmitting && isValid}
                     />
                     <div>
                       <h6>
-                        <strong>Overview: profession Profiles</strong>
+                        <strong>Overview: Profession Profiles</strong>
                       </h6>
                       <div className="table-responsive">
                         <table className="table">
@@ -163,7 +163,7 @@ export default function Profession() {
                 )}
               </Formik>
             </div>
-            {continueButton ? <ContinueButton url="/addStudy" /> : null}
+            {continueButton ? <ContinueButton url="/addCompetency" /> : null}
           </div>
         </div>
       </div>

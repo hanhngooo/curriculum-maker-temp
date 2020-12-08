@@ -117,7 +117,9 @@ export default function GraduateProfiles() {
                 )}
               </Formik>
             </div>
-            {continueButton ? <ContinueButton url="/addStudy" /> : null}
+            {continueButton ? (
+              <ContinueButton url="/addDublinDescriptor" />
+            ) : null}
           </div>
         </div>
       </div>
