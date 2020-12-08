@@ -11,3 +11,47 @@
   margin-top: 0;
 }
 
+.side-bar-step {
+  border: solid 0.1px lightgrey;
+  margin: 20px 0px;
+}
+
+.side-bar {
+  margin-top: 20px;
+}
+
+.col-xl-2.side-bar-left {
+  border-right: solid 0.1px lightgrey;
+  font-size: small;
+}
+
+.side-bar-left-overview {
+  border: solid 0.1px lightgrey;
+  /*box-shadow: initial;*/
+}
+
+.side-bar-each-step {
+  padding: 10px 10px;
+  border-bottom: solid 0.1px lightgrey;
+  transition: 0.5s;
+}
+
+.side-bar-each-step:hover {
+  background-color: rgb(232,232,232);
+  cursor: pointer;
+  font-weight: bold;
+  color: #17a2b8;
+}
+
+.list-unstyled.side-bar-steps {
+  margin: 0px;
+}
+
+.col.modal-descriptor-each {
+  /*font-weight: 100;*/
+}
+
+.modal fade .modal-xl show {
+  width: 800px;
+}
+

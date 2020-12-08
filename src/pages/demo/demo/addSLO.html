@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Scorecard-Curriculum-Maker-Demo-04-DEC-2020</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/Multi-Select-Dropdown-by-Jigar-Mistry.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../assets/css/scorecard-navbar.css">
+    <link rel="stylesheet" href="../assets/css/slo.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <div class="pageContainer">
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="width: 100%;">
+            <div class="container"><a class="navbar-brand"><strong>StudyCard </strong>| Curriculum Maker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                    </ul><span class="navbar-text actions"> <a class="btn btn-primary text-justify action-button" role="button" href="login.html">Logout</a></span></div>
+    </div>
+    </nav>
+    <div class="row">
+        <div class="col-xl-2 side-bar-left">
+            <div class="side-bar-left-overview">
+                <h6>Study: ABC</h6>
+                <ul class="list-unstyled">
+                    <li>EQF: 6-HBO</li>
+                    <li>ETCS: 180</li>
+                    <li>Profiles: 0</li>
+                    <li>bla bla</li>
+                </ul>
+            </div>
+            <div class="side-bar-step">
+                <ul class="list-unstyled side-bar-steps">
+                    <li class="side-bar-each-step">1. Add School</li>
+                    <li class="side-bar-each-step">2. Add Study</li>
+                    <li class="side-bar-each-step">2.1 Add Graduate Profiles</li>
+                    <li class="side-bar-each-step">2.1 Add Dublin Descriptors</li>
+                    <li class="side-bar-each-step">3. Add Professions</li>
+                    <li class="side-bar-each-step">4. Add Competencies</li>
+                    <li class="side-bar-each-step">4.1 Add Competencies Sub-criteria</li>
+                    <li class="side-bar-each-step">5. Add Study Year</li>
+                    <li class="side-bar-each-step">6. Add Study Learning Outcomes</li>
+                    <li class="side-bar-each-step">7. Add Modules</li>
+                    <li class="side-bar-each-step">7.1 Add Module Learning Outcomes</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div class="main">
+                <h3 class="text-info"><strong>Study Learning Outcomes (SLO)&nbsp;</strong><br></h3>
+                <div class="main__singleForm">
+                    <div class="form-group"><label>SLO Title<br></label><input type="text" class="form-control"></div>
+                    <div class="form-group"><label>SLO Description<br></label><input type="text" class="form-control"></div>
+                    <div class="form-group"><label><strong>Code/Reference</strong><br></label><input type="text" class="form-control"></div>
+                    <div class="form-group"><label>Skills Tags<br></label><input type="text" class="form-control"></div>
+                    <div class="form-group"><label>Dublin Descriptors<br></label><input type="text" class="form-control"></div>
+                    <div class="form-group"><label>Select Competence<br></label><select class="form-control"><option value="creativeThinking" selected="">Creative Thinking</option><option value="problemSolving">Problem Solving</option></select></div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-info" data-toggle="" data-target="" type="button">Add SLO</button></div>
+                    </div>
+                    <h6><strong>Overview: Study Learning Outcomes</strong></h6>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-left" style="font-size: 15px;">
+                                    <th style="width: 150px;">Reference</th>
+                                    <th style="width: 205px;">SLO Title</th>
+                                    <th style="width: 205PX;">Competences</th>
+                                    <th class="text-center" style="width: 205px;">Skills</th>
+                                    <th class="text-center" style="width: 205px;">Dublin Descriptors</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th style="font-size: 15px;"><strong>1</strong><br></th>
+                                    <td style="width: 205px;">ABC</td>
+                                    <td style="width: 205px;">3</td>
+                                    <td class="text-center" style="font-size: 15px;width: 205px;">3</td>
+                                    <td class="text-center" style="font-size: 15px;width: 205px;">3</td>
+                                </tr>
+                                <tr style="font-size: 15px;">
+                                    <th style="font-size: 15px;">2<br></th>
+                                    <td style="width: 205px;">XYZ</td>
+                                    <td style="width: 205px;">2</td>
+                                    <td class="text-center flex-fill justify-content-center align-content-center" style="font-size: 15px;text-align: center;width: 205px;">3</td>
+                                    <td class="align-content-center" style="font-size: 15px;text-align: center;width: 205px;">2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center"></div>
+                    <div class="row">
+                        <div class="col"><a href="addprofession.html"><button class="btn btn-primary text-justify" type="button">Continue</button></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/Multi-Select-Dropdown-by-Jigar-Mistry.js"></script>
+</body>
+
+</html>

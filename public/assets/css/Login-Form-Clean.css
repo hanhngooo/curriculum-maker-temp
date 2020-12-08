@@ -85,10 +85,20 @@ label {
 }
 
 .main__singleForm {
-  margin-top: 20px;
+  margin-top: 30px;
+  /*margin-bottom: 20px;*/
 }
 
 .btn {
   margin: 5px;
+}
+
+.btn:not(:disabled):not(.disabled) {
+}
+
+.btn:not(:disabled):not(.disabled).dublin-modal {
+  color: #212529;
+  background: white;
+  border: none;
 }
 

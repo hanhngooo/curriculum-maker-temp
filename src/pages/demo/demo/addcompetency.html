@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Scorecard-Curriculum-Maker-Demo-04-DEC-2020</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="../assets/css/Multi-Select-Dropdown-by-Jigar-Mistry.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../assets/css/scorecard-navbar.css">
+    <link rel="stylesheet" href="../assets/css/slo.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+    <div class="pageContainer">
+        <div class="modal fade modal-xl" role="dialog" tabindex="-1" id="modal1" style="max-width: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Competence sub-criteria</h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Main competence:</h6>
+                                </div>
+                                <div class="col">
+                                    <div></div>
+                                    <h6><strong>Creative thinking</strong></h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Code/Reference:</h6>
+                                </div>
+                                <div class="col">
+                                    <div></div>
+                                    <h6><strong>A</strong></h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Dublin Decriptor coverage:</h6>
+                                </div>
+                                <div class="col">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col modal-descriptor-each">
+                                    <h6>Knowledge and Insight</h6>
+                                </div>
+                                <div class="col">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Apply knowledge and insight</h6>
+                                </div>
+                                <div class="col">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Judgement</h6>
+                                </div>
+                                <div class="col">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Communication</h6>
+                                </div>
+                                <div class="col">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Learning skills</h6>
+                                </div>
+                                <div class="col">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Reference</th>
+                                            <th class="text-center"><strong>Level 1</strong></th>
+                                            <th class="text-center"><strong>Level 2</strong></th>
+                                            <th class="text-center"><strong>Level 3</strong></th>
+                                            <th class="text-center"><strong>Level 4</strong></th>
+                                            <th class="text-center"><strong>Skills</strong></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>A1</th>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="description"></td>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="description"></td>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="description"></td>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="description"></td>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="description"></td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="add skills"></td>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="add skills"></td>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="add skills"></td>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="add skills"></td>
+                                            <td><input type="text" class="form-control" style="border-style: none;" placeholder="add skills"></td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td><select class="form-control"><option value="Knowlegde and Insight" selected="">Knowlegde and Insight</option><option value="Apply knowlegde and insight">Apply knowlegde and insight</option><option value="Judgement">Judgement</option><option value="Communication">Communication</option><option value="Learning skills">Learning skills</option></select></td>
+                                            <td><select class="form-control"><option value="Knowlegde and Insight" selected="">Knowlegde and Insight</option><option value="Apply knowlegde and insight">Apply knowlegde and insight</option><option value="Judgement">Judgement</option><option value="Communication">Communication</option><option value="Learning skills">Learning skills</option></select></td>
+                                            <td><select class="form-control"><option value="Knowlegde and Insight" selected="">Knowlegde and Insight</option><option value="Apply knowlegde and insight">Apply knowlegde and insight</option><option value="Judgement">Judgement</option><option value="Communication">Communication</option><option value="Learning skills">Learning skills</option></select></td>
+                                            <td><select class="form-control"><option value="Knowlegde and Insight" selected="">Knowlegde and Insight</option><option value="Apply knowlegde and insight">Apply knowlegde and insight</option><option value="Judgement">Judgement</option><option value="Communication">Communication</option><option value="Learning skills">Learning skills</option></select></td>
+                                            <td><select class="form-control"><option value="Knowlegde and Insight" selected="">Knowlegde and Insight</option><option value="Apply knowlegde and insight">Apply knowlegde and insight</option><option value="Judgement">Judgement</option><option value="Communication">Communication</option><option value="Learning skills">Learning skills</option></select></td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td><select class="form-control"><option value="create" selected="">Create</option><option value="evaluate">Evaluate</option><option value="analyze">Analyze</option><option value="apply">Apply</option><option value="understand">Understand</option><option value="remember">Remember</option></select></td>
+                                            <td><select class="form-control"><option value="create" selected="">Create</option><option value="evaluate">Evaluate</option><option value="analyze">Analyze</option><option value="apply">Apply</option><option value="understand">Understand</option><option value="remember">Remember</option></select></td>
+                                            <td><select class="form-control"><option value="create" selected="">Create</option><option value="evaluate">Evaluate</option><option value="analyze">Analyze</option><option value="apply">Apply</option><option value="understand">Understand</option><option value="remember">Remember</option></select></td>
+                                            <td><select class="form-control"><option value="create" selected="">Create</option><option value="evaluate">Evaluate</option><option value="analyze">Analyze</option><option value="apply">Apply</option><option value="understand">Understand</option><option value="remember">Remember</option></select></td>
+                                            <td><select class="form-control"><option value="create" selected="">Create</option><option value="evaluate">Evaluate</option><option value="analyze">Analyze</option><option value="apply">Apply</option><option value="understand">Understand</option><option value="remember">Remember</option></select></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="width: 100%;">
+            <div class="container"><a class="navbar-brand"><strong>StudyCard </strong>| Curriculum Maker</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                    </ul><span class="navbar-text actions"> <a class="btn btn-primary text-justify action-button" role="button" href="login.html">Logout</a></span></div>
+    </div>
+    </nav>
+    <div class="row">
+        <div class="col-xl-2 side-bar-left">
+            <div class="side-bar-left-overview">
+                <h6>Study: ABC</h6>
+                <ul class="list-unstyled">
+                    <li>EQF: 6-HBO</li>
+                    <li>ETCS: 180</li>
+                    <li>Profiles: 0</li>
+                    <li>bla bla</li>
+                </ul>
+            </div>
+            <div class="side-bar-step">
+                <ul class="list-unstyled side-bar-steps">
+                    <li class="side-bar-each-step">1. Add School</li>
+                    <li class="side-bar-each-step">2. Add Study</li>
+                    <li class="side-bar-each-step">2.1 Add Graduate Profiles</li>
+                    <li class="side-bar-each-step">2.1 Add Dublin Descriptors</li>
+                    <li class="side-bar-each-step">3. Add Professions</li>
+                    <li class="side-bar-each-step">4. Add Competencies</li>
+                    <li class="side-bar-each-step">4.1 Add Competencies Sub-criteria</li>
+                    <li class="side-bar-each-step">5. Add Study Year</li>
+                    <li class="side-bar-each-step">6. Add Study Learning Outcomes</li>
+                    <li class="side-bar-each-step">7. Add Modules</li>
+                    <li class="side-bar-each-step">7.1 Add Module Learning Outcomes</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div class="main">
+                <h3 class="text-info"><strong>Competencies</strong></h3>
+                <div class="main__singleForm">
+                    <div class="form-group"><label><strong>Competency title</strong><br></label><input type="text" class="form-control"></div>
+                    <div class="form-group"><label><strong>Code/Reference</strong><br></label><input type="text" class="form-control"></div>
+                    <div class="form-group"><label><strong>Competency description</strong><br></label><input type="text" class="form-control"></div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xl-3"><label class="col-form-label">Skill Tags (0)<br></label></div>
+                            <div class="col-xl-9"><input type="text" class="form-control"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xl-3"><label class="col-form-label"><strong>Dublin Descriptors (0)</strong><br></label></div>
+                            <div class="col-xl-9"><select id="dates-field2" class="multiselect-ui form-control" multiple=""><option value="knowlegdeAndInsight" selected="">Knowlegde and Insight</option><option value="applyKnowlegdeAndInsight">Apply knowlegde and insight</option><option value="judgement">Judgement</option><option value="communication">Communication</option><option value="learningSkills">Learning skills</option></select></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xl-3"><label class="col-form-label"><strong>Sub-criteria (0)</strong><br></label></div>
+                            <div class="col-xl-7 d-xl-flex justify-content-xl-start"><button class="btn btn-info" data-toggle="modal" data-target="#modal1" type="button">Add Sub-criteria</button></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12"><button class="btn btn-info text-justify" type="button">Add competency</button></div>
+                    </div>
+                </div>
+                <h6><strong>Overview: Study</strong></h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr class="text-left" style="font-size: 15px;">
+                                <th>#</th>
+                                <th>Reference</th>
+                                <th><strong>Competence&nbsp;</strong></th>
+                                <th class="text-center" style="width: 130px;"><strong>Level 1</strong></th>
+                                <th class="text-center" style="width: 130px;"><strong>Level 2</strong></th>
+                                <th class="text-center" style="width: 130px;"><strong>Level 3</strong></th>
+                                <th class="text-center" style="width: 130px;"><strong>Level 4</strong></th>
+                                <th style="width: 130px;text-align: center;">Skills&nbsp;</th>
+                                <th style="width: 130px;text-align: center;">KI</th>
+                                <th style="width: 130px;text-align: center;">AKI</th>
+                                <th style="width: 130px;text-align: center;">JG</th>
+                                <th style="width: 130px;text-align: center;">CM</th>
+                                <th style="width: 130px;text-align: center;">LS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th style="font-size: 15px;">1</th>
+                                <th style="font-size: 15px;">A</th>
+                                <th style="font-size: 15px;">Creative Thinking</th>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                            </tr>
+                            <tr style="font-size: 15px;">
+                                <th style="font-size: 15px;">2</th>
+                                <th style="font-size: 15px;">B</th>
+                                <th style="font-size: 15px;">Problem solving</th>
+                                <td class="flex-fill justify-content-center align-content-center" style="font-size: 15px;text-align: center;"></td>
+                                <td class="align-content-center" style="font-size: 15px;text-align: center;"></td>
+                                <td style="font-size: 15px;text-align: center;"></td>
+                                <td class="align-content-center" style="font-size: 15px;text-align: center;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                                <td style="font-size: 15px;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col"><a href="addprofession.html"><button class="btn btn-primary text-justify" type="button">Continue</button></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/Multi-Select-Dropdown-by-Jigar-Mistry.js"></script>
+</body>
+
+</html>

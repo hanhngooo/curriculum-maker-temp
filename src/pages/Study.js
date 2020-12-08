@@ -1,450 +1,288 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Formik, Form, Field } from "formik";
+import { addStudy } from "../store/user/actions";
+import { selectStudy } from "../store/user/selectors";
 
-export default function Study() {
-  const [graduateProfileList, setGraduateProfileList] = useState([
-    { diplomaTitle: "", diplopmaDescription: "" },
-  ]);
+import CalculatedField from "./CalculatedField";
+import SaveButton from "../components/SaveButton";
+import SideBarStep from "../components/SideBarStep";
+import SideBarOverview from "../components/SideBarOverview";
+import ContinueButton from "../components/ContinueButton";
+import TagInput from "../components/TagInput/TagInput";
 
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
-    const newList = [...graduateProfileList];
-    newList[index][name] = value;
-    setGraduateProfileList(newList);
+function Study() {
+  const [continueButton, setContinueButton] = useState(false);
+  const dispatch = useDispatch();
+  const study = useSelector(selectStudy);
+
+  const initialValues = {
+    studyName: "",
+    studyDescription: "",
+    studyTags: [],
+    nationalEQFLevel: "",
+    nationalEQFName: "",
+    internationalEQFLevel: "",
+    internationalEQFName: "",
+    duration: "",
+    ectPerYear: "",
+    ectTotal: "",
+    ectHours: "",
   };
+  // const selectedTags = tags;
 
-  // // handle click event of the Remove button
-  // const handleRemoveClick = index => {
-  //   const list = [...inputList];
-  //   list.splice(index, 1);
-  //   setInputList(list);
-  // };
-
-  // handle click event of the Add button
-  const handleAddClick = () => {
-    setGraduateProfileList([
-      ...graduateProfileList,
-      { diplomaTitle: "", diplopmaDescription: "" },
-    ]);
-  };
-
+  //prevent submit when press Enter
+  function onKeyDown(keyEvent) {
+    if ((keyEvent.charCode || keyEvent.keyCode) === 13) {
+      keyEvent.preventDefault();
+    }
+  }
   return (
     <div className="pageContainer">
-      <div className="main">
-        <h3 className="text-info">
-          <strong>Study</strong>
-        </h3>
-        <div className="main__singleForm">
-          <div className="form-group">
-            <label>
-              <strong>Study Name</strong>
-              <br />
-            </label>
-            <input type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label>
-              <strong>Study Description</strong>
-              <br />
-            </label>
-            <input type="text" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label>
-              <strong>Study Tags</strong>
-              <br />
-            </label>
-            <input type="text" className="form-control" />
-          </div>
-          <div className="row">
-            <div className="col-sm-12 col-md-6 col-xl-3">
-              <div className="form-group">
-                <label>
-                  <strong>National EQF - Level</strong>
-                  <br />
-                </label>
-                <select className="form-control">
-                  <option value="1" selected="">
-                    1
-                  </option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                </select>
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-6 col-xl-3">
-              <div className="form-group">
-                <label>
-                  <strong>National EQF - Name</strong>
-                  <br />
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="E.g. HBO"
-                />
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-6 col-xl-3">
-              <div className="form-group">
-                <label>
-                  <strong>International-EQF - Level</strong>
-                  <br />
-                </label>
-                <select className="form-control">
-                  <option value="1" selected="">
-                    1
-                  </option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                </select>
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-6 col-xl-3">
-              <div className="form-group">
-                <label>
-                  <strong>International-EQF-Name</strong>
-                  <br />
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="E.g. Bachelor"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-12 col-md-6 col-xl-3">
-              <div className="form-group">
-                <label>
-                  <strong>Duration in years</strong>
-                  <br />
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="E.g. 3"
-                />
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-6 col-xl-3">
-              <div className="form-group">
-                <label>
-                  <strong>ECTS-credits per year</strong>
-                  <br />
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="E.g. 60"
-                />
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-6 col-xl-3">
-              <div className="form-group">
-                <label>
-                  <strong>ECTS total</strong>
-                  <br />
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="E.g. 180"
-                />
-              </div>
-            </div>
-            <div className="col-sm-3 col-md-6 col-xl-3">
-              <div className="form-group">
-                <label>
-                  <strong>ECTS converted into hours</strong>
-                  <br />
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="E.g. 5040"
-                />
-              </div>
-            </div>
-          </div>
+      <div className="row">
+        <div className="col-xl-2 side-bar-left">
+          <SideBarOverview />
+          <SideBarStep />
         </div>
-        <div className="main__singleForm">
-          <h5 className="text-info">
-            <strong>&nbsp;Level: Bachelor</strong>
-          </h5>
-          <div className="table-responsive">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>
-                    <strong>
-                      <span style={{ textDecoration: "underline" }}>
-                        Dublin Descriptors
-                      </span>
-                    </strong>
-                  </th>
-                  <th className="text-center">
-                    <strong>Level 1</strong>
-                  </th>
-                  <th className="text-center">
-                    <strong>Level 2</strong>
-                  </th>
-                  <th className="text-center">
-                    <strong>Level 3</strong>
-                  </th>
-                  <th className="text-center">
-                    <strong>Level 4</strong>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>
-                    <strong>Knowledge and insight</strong>
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
+        <div className="col">
+          <div className="main">
+            <h3 className="text-info">
+              <strong>Study</strong>
+            </h3>
+            <div className="main__singleForm">
+              <Formik
+                initialValues={initialValues}
+                onSubmit={(data, { setSubmitting, resetForm }) => {
+                  setSubmitting(true);
+                  console.log("submit data: ", data);
+                  dispatch(addStudy(data));
+                  resetForm();
+                  setContinueButton(true);
+                }}
+              >
+                {({ values, isSubmitting, handleChange, setFieldValue }) => (
+                  <Form onKeyDown={onKeyDown}>
+                    <div className="form-group">
+                      <label>
+                        <strong>Study Name</strong>
+                        <br />
+                      </label>
+                      <Field
+                        type="text"
+                        className="form-control"
+                        name="studyName"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>
+                        <strong>Study Description</strong>
+                        <br />
+                      </label>
+                      <Field
+                        type="text"
+                        className="form-control"
+                        name="studyDescription"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>
+                        <strong>Study Tags</strong>
+                        <br />
+                      </label>
+                      <Field
+                        type="text"
+                        className="form-control"
+                        name="studyTags"
+                        setFieldValue={setFieldValue}
+                        component={TagInput}
+                      />
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-12 col-md-6 col-xl-3">
+                        <div className="form-group">
+                          <label>
+                            <strong>National EQF - Level</strong>
+                            <br />
+                          </label>
+                          <Field
+                            className="form-control"
+                            as="select"
+                            name="nationalEQFLevel"
+                          >
+                            <option>Select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                          </Field>
+                        </div>
+                      </div>
+                      <div className="col-sm-12 col-md-6 col-xl-3">
+                        <div className="form-group">
+                          <label>
+                            <strong>National EQF - Name</strong>
+                            <br />
+                          </label>
+                          <Field
+                            type="text"
+                            name="nationalEQFName"
+                            className="form-control"
+                            placeholder="E.g. HBO"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-sm-12 col-md-6 col-xl-3">
+                        <div className="form-group">
+                          <label>
+                            <strong>International-EQF - Level</strong>
+                            <br />
+                          </label>
+                          <Field
+                            as="select"
+                            name="internationalEQFLevel"
+                            className="form-control"
+                          >
+                            <option>Select</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                          </Field>
+                        </div>
+                      </div>
+                      <div className="col-sm-12 col-md-6 col-xl-3">
+                        <div className="form-group">
+                          <label>
+                            <strong>International-EQF-Name</strong>
+                            <br />
+                          </label>
+                          <Field
+                            type="text"
+                            name="internationalEQFName"
+                            className="form-control"
+                            placeholder="E.g. Bachelor"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-12 col-md-6 col-xl-3">
+                        <div className="form-group">
+                          <label>
+                            <strong>Duration in years</strong>
+                            <br />
+                          </label>
+                          <Field
+                            type="number"
+                            name="duration"
+                            className="form-control"
+                            placeholder="E.g. 3"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-sm-12 col-md-6 col-xl-3">
+                        <div className="form-group">
+                          <label>
+                            <strong>ECTS-credits per year</strong>
+                            <br />
+                          </label>
+                          <Field
+                            type="text"
+                            name="ectPerYear"
+                            className="form-control"
+                            placeholder="E.g. 60"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-sm-12 col-md-6 col-xl-3">
+                        <div className="form-group">
+                          <label>
+                            <strong>ECTS total</strong>
+                            <br />
+                          </label>
+                          <CalculatedField
+                            type="number"
+                            name="ectTotal"
+                            defaulValue="1"
+                            value={values.ectTotal}
+                            values={values}
+                            setFieldValue={setFieldValue}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-sm-3 col-md-6 col-xl-3">
+                        <div className="form-group">
+                          <label>
+                            <strong>ECTS converted into hours</strong>
+                            <br />
+                          </label>
+                          <CalculatedField
+                            type="number"
+                            name="ectHours"
+                            value={values.ectHours}
+                            values={values}
+                            setFieldValue={setFieldValue}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <SaveButton
+                      dataName="Study"
+                      disabled={isSubmitting}
+                      // onClick={() => handleSubmit()}
                     />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    <strong>Apply knowledge and insight</strong>
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    <strong>Judgement</strong>
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    <strong>Communication</strong>
-                    <br />
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    <strong>Learning skills</strong>
-                    <br />
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      className="form-control"
-                      style={{ borderStyle: "none" }}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="main__singleForm">
-          <h5 className="text-info">
-            <strong>Graduate Profile</strong>
-          </h5>
-        </div>
-        {graduateProfileList.map((x, i) => {
-          return (
-            <div className="row">
-              <div className="col-sm-12 col-md-5 col-xl-5">
-                <div className="form-group">
-                  <label>
-                    Diploma title
-                    <br />
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="diplomaTitle"
-                    value={x.diplomaTitle}
-                    onChange={(e) => handleInputChange(e, i)}
-                  />
-                </div>
-              </div>
-              <div className="col-sm-12 col-md-5 col-xl-5">
-                <div className="form-group">
-                  <label>
-                    Description
-                    <br />
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="diplomaDescription"
-                    value={x.diplopmaDescription}
-                    onChange={(e) => handleInputChange(e, i)}
-                  />
-                </div>
-              </div>
-              <div className="col-sm-12 col-md-1 col-xl-1 d-flex justify-content-center">
-                <div className="d-flex justify-content-center align-items-center">
-                  {graduateProfileList.length - 1 === i && (
-                    <button
-                      className="btn btn-info text-justify d-flex justify-content-center align-items-center"
-                      type="button"
-                      style={{ width: "31px", height: "33px" }}
-                      onClick={handleAddClick}
-                    >
-                      <i className="fa fa-plus d-lg-flex justify-content-center align-content-center align-self-center align-items-lg-center"></i>
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-          );
-        })}
+                    <div>
+                      <h6>
+                        <strong>Overview: Study</strong>
+                      </h6>
+                      <div className="table-responsive">
+                        <table className="table">
+                          <thead>
+                            <tr>
+                              <th>Study</th>
+                              <th>National EQF Level</th>
+                              <th>National EQF Name</th>
 
-        <div className="row">
-          <div className="col">
-            <a href="/addProfession">
-              <button className="btn btn-primary text-justify" type="button">
-                Next
-              </button>
-            </a>
+                              <th>ETCS</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {study ? (
+                                <>
+                                  <td>{study.studyName}</td>
+                                  <td>{study.nationalEQFLevel}</td>
+                                  <td> {study.nationalEQFName}</td>
+                                  <td>{study.ectTotal}</td>
+                                </>
+                              ) : null}
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            </div>
+            {continueButton ? (
+              <ContinueButton url="/addGraduatePofiles" />
+            ) : null}
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+export default Study;
