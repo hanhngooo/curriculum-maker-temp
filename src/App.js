@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/addSchool" component={School} />
         <Route exact path="/addStudy" component={Study} />
         <Route exact path="/addGraduateProfile" component={GraduateProfile} />
-
+        <Route exact path="/addProfession" component={Profession} />
         <Route exact path="/addProfession" component={Profession} />
         <Route exact path="/addCompetency" component={Competency} />
         <Route exact path="/addStudyYear" component={StudyYear} />

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Formik, Form, Field, useField, ErrorMessage } from "formik";
-import { Radio, FormControlLabel } from "@material-ui/core";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import "./Form.css";
 
@@ -12,7 +11,7 @@ import SideBarOverview from "../components/SideBarOverview";
 import { addGraduateProfile } from "../store/user/actions";
 import { selectGraduateProfile } from "../store/user/selectors";
 
-export default function School() {
+export default function GraduateProfiles() {
   const [continueButton, setContinueButton] = useState(false);
   const dispatch = useDispatch();
   const graduateProfiles = useSelector(selectGraduateProfile);

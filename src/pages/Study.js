@@ -21,14 +21,14 @@ function Study() {
     studyName: yup.string().required("This field is required."),
     studyDescription: yup.string().required("This field is required."),
     // schoolTags: yup.array().required("This field is required."),
-    // nationalEQFLevel: yup.number().required("This field is required."),
-    // nationalEQFName: yup.string().required("This field is required."),
-    // internationalEQFLevel: yup.number().required("This field is required."),
-    // internationalEQFName: yup.string().required("This field is required."),
-    // duration: yup.number().required("This field is required."),
-    // ectPerYear: yup.number().required("This field is required."),
-    // ectTotal: yup.number().required("This field is required."),
-    // ectHours: yup.string().required("This field is required."),
+    nationalEQFLevel: yup.number().required("This field is required."),
+    nationalEQFName: yup.string().required("This field is required."),
+    internationalEQFLevel: yup.number().required("This field is required."),
+    internationalEQFName: yup.string().required("This field is required."),
+    duration: yup.number().required("This field is required."),
+    ectPerYear: yup.number().required("This field is required."),
+    ectTotal: yup.number().required("This field is required."),
+    ectHours: yup.string().required("This field is required."),
   });
 
   const initialValues = {
@@ -44,7 +44,6 @@ function Study() {
     ectTotal: "",
     ectHours: "",
   };
-  // const selectedTags = tags;
 
   //prevent submit when press Enter
   function onKeyDown(keyEvent) {
@@ -353,7 +352,7 @@ function Study() {
               </Formik>
             </div>
             {continueButton ? (
-              <ContinueButton url="/addGraduatePofiles" />
+              <ContinueButton url="/addGraduateProfiles" />
             ) : null}
           </div>
         </div>

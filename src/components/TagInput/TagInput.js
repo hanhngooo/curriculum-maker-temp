@@ -18,7 +18,7 @@ const TagInput = (props) => {
         return;
       }
       setTags([...tags, val]);
-      props.setFieldValue("studyTags", [...tags, val]);
+      props.setFieldValue(props.name, [...tags, val]);
       tagInput.value = null;
     } else if (e.key === "Backspace" && !val) {
       removeTag(tags.length - 1);

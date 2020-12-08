@@ -45,3 +45,19 @@ export const addGraduateProfile = (graduateProfile) => {
     dispatch(addGraduateProfileSuccess(graduateProfile));
   };
 };
+
+export const ADD_PROFESSION_SUCCESS = "ADD_PROFESSION_SUCCESS";
+
+const addProfessionSuccess = (profession) => {
+  return {
+    type: ADD_PROFESSION_SUCCESS,
+    payload: profession,
+  };
+};
+
+export const addProfession = (profession) => {
+  return async (dispatch, getState) => {
+    // console.log("do you go here", studyInput);
+    dispatch(addProfessionSuccess(profession));
+  };
+};
