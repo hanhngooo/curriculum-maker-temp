@@ -3,6 +3,7 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import School from "./pages/School";
 import Study from "./pages/Study";
+import GraduateProfile from "./pages/GraduateProfile";
 import Navigation from "./components/Navigation";
 import Profession from "./pages/Profession";
 import Competency from "./pages/Competency";
@@ -17,6 +18,8 @@ function App() {
       <Switch>
         <Route exact path="/addSchool" component={School} />
         <Route exact path="/addStudy" component={Study} />
+        <Route exact path="/addGraduateProfile" component={GraduateProfile} />
+
         <Route exact path="/addProfession" component={Profession} />
         <Route exact path="/addCompetency" component={Competency} />
         <Route exact path="/addStudyYear" component={StudyYear} />
