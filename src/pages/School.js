@@ -10,7 +10,7 @@ import SaveButton from "../components/SaveButton";
 import SideBarStep from "../components/SideBarStep";
 import SideBarOverview from "../components/SideBarOverview";
 import { addSchool } from "../store/user/actions";
-import { selectSchool } from "../store/user/selectors";
+// import { selectSchool } from "../store/user/selectors";
 
 const MyRadio = ({ label, ...props }) => {
   const [field] = useField(props);
@@ -20,7 +20,6 @@ const MyRadio = ({ label, ...props }) => {
 export default function School() {
   const [continueButton, setContinueButton] = useState(false);
   const dispatch = useDispatch();
-  const school = useSelector(selectSchool);
 
   let validationSchema = yup.object().shape({
     schoolName: yup.string().required("This field is required."),

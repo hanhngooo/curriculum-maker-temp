@@ -1,2 +1,2 @@
 export const selectSchool = (state) => state.user.school;
-export const selectStudy = (state) => state.user.study;
+export const selectStudy = (state) => state.user.studies;

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { addStudy } from "../store/user/actions";
 import { selectStudy } from "../store/user/selectors";
+import * as yup from "yup";
 
 import CalculatedField from "./CalculatedField";
 import SaveButton from "../components/SaveButton";
@@ -14,7 +15,21 @@ import TagInput from "../components/TagInput/TagInput";
 function Study() {
   const [continueButton, setContinueButton] = useState(false);
   const dispatch = useDispatch();
-  const study = useSelector(selectStudy);
+  const studies = useSelector(selectStudy);
+
+  let validationSchema = yup.object().shape({
+    studyName: yup.string().required("This field is required."),
+    studyDescription: yup.string().required("This field is required."),
+    // schoolTags: yup.array().required("This field is required."),
+    // nationalEQFLevel: yup.number().required("This field is required."),
+    // nationalEQFName: yup.string().required("This field is required."),
+    // internationalEQFLevel: yup.number().required("This field is required."),
+    // internationalEQFName: yup.string().required("This field is required."),
+    // duration: yup.number().required("This field is required."),
+    // ectPerYear: yup.number().required("This field is required."),
+    // ectTotal: yup.number().required("This field is required."),
+    // ectHours: yup.string().required("This field is required."),
+  });
 
   const initialValues = {
     studyName: "",
@@ -52,6 +67,7 @@ function Study() {
             <div className="main__singleForm">
               <Formik
                 initialValues={initialValues}
+                validationSchema={validationSchema}
                 onSubmit={(data, { setSubmitting, resetForm }) => {
                   setSubmitting(true);
                   console.log("submit data: ", data);
@@ -60,7 +76,13 @@ function Study() {
                   setContinueButton(true);
                 }}
               >
-                {({ values, isSubmitting, handleChange, setFieldValue }) => (
+                {({
+                  values,
+                  isSubmitting,
+                  handleChange,
+                  setFieldValue,
+                  isValid,
+                }) => (
                   <Form onKeyDown={onKeyDown}>
                     <div className="form-group">
                       <label>
@@ -71,6 +93,11 @@ function Study() {
                         type="text"
                         className="form-control"
                         name="studyName"
+                      />
+                      <ErrorMessage
+                        name="studyName"
+                        component="span"
+                        className="error"
                       />
                     </div>
                     <div className="form-group">
@@ -83,18 +110,29 @@ function Study() {
                         className="form-control"
                         name="studyDescription"
                       />
+                      <ErrorMessage
+                        name="studyDescription"
+                        component="span"
+                        className="error"
+                      />
                     </div>
                     <div className="form-group">
                       <label>
                         <strong>Study Tags</strong>
                         <br />
                       </label>
-                      <Field
+                      <TagInput
                         type="text"
                         className="form-control"
                         name="studyTags"
+                        value={values.studyTags}
                         setFieldValue={setFieldValue}
-                        component={TagInput}
+                        // component={TagInput}
+                      />
+                      <ErrorMessage
+                        name="studyTags"
+                        component="span"
+                        className="error"
                       />
                     </div>
                     <div className="row">
@@ -119,6 +157,11 @@ function Study() {
                             <option value="7">7</option>
                             <option value="8">8</option>
                           </Field>
+                          <ErrorMessage
+                            name="nationalEQFLevel"
+                            component="span"
+                            className="error"
+                          />
                         </div>
                       </div>
                       <div className="col-sm-12 col-md-6 col-xl-3">
@@ -132,6 +175,11 @@ function Study() {
                             name="nationalEQFName"
                             className="form-control"
                             placeholder="E.g. HBO"
+                          />
+                          <ErrorMessage
+                            name="nationalEQFName"
+                            component="span"
+                            className="error"
                           />
                         </div>
                       </div>
@@ -156,6 +204,11 @@ function Study() {
                             <option value="7">7</option>
                             <option value="8">8</option>
                           </Field>
+                          <ErrorMessage
+                            name="internationalEQFLevel"
+                            component="span"
+                            className="error"
+                          />
                         </div>
                       </div>
                       <div className="col-sm-12 col-md-6 col-xl-3">
@@ -169,6 +222,11 @@ function Study() {
                             name="internationalEQFName"
                             className="form-control"
                             placeholder="E.g. Bachelor"
+                          />
+                          <ErrorMessage
+                            name="internationalEQFName"
+                            component="span"
+                            className="error"
                           />
                         </div>
                       </div>
@@ -186,6 +244,11 @@ function Study() {
                             className="form-control"
                             placeholder="E.g. 3"
                           />
+                          <ErrorMessage
+                            name="duration"
+                            component="span"
+                            className="error"
+                          />
                         </div>
                       </div>
                       <div className="col-sm-12 col-md-6 col-xl-3">
@@ -199,6 +262,11 @@ function Study() {
                             name="ectPerYear"
                             className="form-control"
                             placeholder="E.g. 60"
+                          />
+                          <ErrorMessage
+                            name="ectPerYear"
+                            component="span"
+                            className="error"
                           />
                         </div>
                       </div>
@@ -217,6 +285,11 @@ function Study() {
                             setFieldValue={setFieldValue}
                             onChange={handleChange}
                           />
+                          <ErrorMessage
+                            name="ectTotal"
+                            component="span"
+                            className="error"
+                          />
                         </div>
                       </div>
                       <div className="col-sm-3 col-md-6 col-xl-3">
@@ -233,13 +306,17 @@ function Study() {
                             setFieldValue={setFieldValue}
                             onChange={handleChange}
                           />
+                          <ErrorMessage
+                            name="ectHours"
+                            component="span"
+                            className="error"
+                          />
                         </div>
                       </div>
                     </div>
                     <SaveButton
                       dataName="Study"
-                      disabled={isSubmitting}
-                      // onClick={() => handleSubmit()}
+                      disabled={isSubmitting && isValid}
                     />
                     <div>
                       <h6>
@@ -257,16 +334,16 @@ function Study() {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              {study ? (
-                                <>
-                                  <td>{study.studyName}</td>
-                                  <td>{study.nationalEQFLevel}</td>
-                                  <td> {study.nationalEQFName}</td>
-                                  <td>{study.ectTotal}</td>
-                                </>
-                              ) : null}
-                            </tr>
+                            {studies
+                              ? studies.map((study, index) => (
+                                  <tr key={index}>
+                                    <td>{study.studyName}</td>
+                                    <td>{study.nationalEQFLevel}</td>
+                                    <td> {study.nationalEQFName}</td>
+                                    <td>{study.ectTotal}</td>
+                                  </tr>
+                                ))
+                              : null}
                           </tbody>
                         </table>
                       </div>

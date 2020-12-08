@@ -26,6 +26,6 @@ const addStudySuccess = (studyInfo) => {
 export const addStudy = (studyInput) => {
   return async (dispatch, getState) => {
     // console.log("do you go here", studyInput);
-    dispatch(addStudySuccess({ study: studyInput }));
+    dispatch(addStudySuccess(studyInput));
   };
 };
